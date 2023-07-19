@@ -34,6 +34,18 @@ userController.verifyUser = async (req, res, next) => {
             message: { err: 'An error occurred in entering username/password in verifyUser' }
         });
     }
-
-
+    try {
+        const user = await User.findOne({ username });
+        if (!user) {
+            return ext({
+                log: 'Error occurred in userController.verifyUser',
+                status: 400,
+                message: { err: 'An error occurred, cannot find user' }
+            });
+        }
+        else{
+            res.locals.boolean = true;
+            return next();
+        }  
+    } 
 };
