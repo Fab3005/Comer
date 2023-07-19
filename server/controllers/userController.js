@@ -24,3 +24,7 @@ userController.createUser = async (req, res, next) => {
         });
     }
 };
+
+userController.verifyUser = async (req, res, next) => {
+
+};
