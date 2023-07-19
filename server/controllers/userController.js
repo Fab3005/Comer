@@ -48,4 +48,12 @@ userController.verifyUser = async (req, res, next) => {
             return next();
         }  
     } 
+    catch (err) {
+        return next({
+            log: 'Error occurred in userController.verifyUser',
+            status: 400,
+            message: { err: 'An error occurred' },
+        });
+    }
+
 };
