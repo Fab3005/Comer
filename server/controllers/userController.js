@@ -55,5 +55,6 @@ userController.verifyUser = async (req, res, next) => {
             message: { err: 'An error occurred' },
         });
     }
-
 };
+
+module.exports = userController;
