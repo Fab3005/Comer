@@ -18,6 +18,20 @@ const Recipe = ({recipe}) => {
             </div>
         )
     }
+    else{
+        return (
+        <div className="recipesjs">
+            <h2>
+                {label}
+            </h2>
+            <img src={image} alt={label} className="recipesimg"/>
+            <a href={url} target='_blank' rel='noopener noreferrer'>Recipe Page Link</a> 
+            <button onClick ={() => setShow(true)}>Ingredients</button>
+            <IM onClose={() => setShow(false)} show={showrecipe} ingredients={ingredients}/>
+            
+        </div>
+    )
+    }
    
 }
 
