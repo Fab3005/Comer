@@ -1,0 +1,109 @@
+html {
+    color: white;
+}
+
+.Main {
+    text-align: center;
+  }
+  
+.hungry-person {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+@media (prefers-reduced-motion: no-preference) {
+    .hungry-person{
+      animation: hungry-person-spin infinite 20s linear;
+    }
+  }
+
+.recipe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
+
+}
+
+.recipes {
+    /* width: auto;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template: auto/ repeat(auto-fit, minmax(500px, 1fr));
+    background-color: #d3d3d3;
+    color:black;
+    padding: 2rem;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 2rem 3rem 5rem #aaa;
+}
+.recipesjs {
+    width: auto;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.recipesimg {
+    border-radius: 0.5rem;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipesjs a {
+  font-size: 1.8rem;
+  color: #8f40b4;
+}
+
+.recipesjs button {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #b4409f;
+  border: none;
+  border-radius: 0.5rem;
+  height: 3rem;
+}
+
+.textforfood {
+    padding: 10px;
+    border: 2px solid #eee;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputforfood {
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: #5fd4c6;
+    color: white;
+    font-size: 22px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
