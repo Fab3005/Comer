@@ -1,0 +1,16 @@
+.App {
+    text-align: center;
+  }
+  .App-logo {
+    height: 40vmin;
+  }
+  html{
+    background-color: #191414;
+  }
+  .App-header {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
