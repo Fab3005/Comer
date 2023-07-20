@@ -1,12 +1,7 @@
 import React, {useEffect} from 'react';
 import './Modal.css'
 import Ingredients from '../ingrediants';
-// import {v4 as uuid} from 'uuid'
 
-// export default function IM ({ingredients}, props){
-//     // if(!props.show){
-//     //     return null
-//     // }
 export default function IM({ ingredients, onClose, show }) {
     useEffect(() => {
       function handleCloseModal(event) {
