@@ -1,0 +1,18 @@
+html {
+    color: white;
+}
+
+.Main {
+    text-align: center;
+  }
+  
+.hungry-person {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+@media (prefers-reduced-motion: no-preference) {
+    .hungry-person{
+      animation: hungry-person-spin infinite 20s linear;
+    }
+  }
