@@ -28,12 +28,6 @@ html {
 }
 
 .recipes {
-    /* width: auto;
-    margin: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     display: grid;
     grid-template: auto/ repeat(auto-fit, minmax(500px, 1fr));
     background-color: #d3d3d3;
