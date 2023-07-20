@@ -1,3 +1,4 @@
 node_modules
 package-lock.json
 frontend/components/playground-1.mongodb.js
+dist

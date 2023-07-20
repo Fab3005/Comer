@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./frontend/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -25,13 +25,10 @@ module.exports = {
 
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
-      '/assets/**': {
+      '/api/**': {
         target: 'http://localhost:3000/',
         secure: false,
-      },
-      '/server/**': {
-        target: 'http://localhost:3000/',
-        secure: false,
+        changeOrigin: true
       },
     },
   },
@@ -49,12 +46,16 @@ module.exports = {
         exclude: /node_modules/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.svg$/,
+        use: ['file-loader'],
+      }
     ],
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html'),
+      template: path.resolve(__dirname, 'frontend/index.html'),
     }),
   ],
   performance: {
