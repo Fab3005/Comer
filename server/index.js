@@ -1,44 +1,49 @@
-const path = require('path');
 const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser')
 const app = express();
-const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
-const myRouter = require('./routes.js');
+const userController = require('./controllers/userController')
 
 const PORT = process.env.PORT || 3000;
 
+//MongoDB stuff
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://Fabrizzio:Knicksarenumber1!@cluster0.my2wym6.mongodb.net/');
+mongoose.connection.once('open', () => {
+    console.log('Connecting to Database')
+})
 
-const mongoURI = 'mongodb+srv://Fabrizzio:Knicksarenumber1!@cluster0.my2wym6.mongodb.net/';
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: 'myDatabase',
-});
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser());
+
+
+
+app.use(bodyParser.json())
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(__dirname, '../dist')));
-}
+    app.use('/', express.static(path.resolve(__dirname, '../dist')));
+  }
 
-app.use('/assets', express.static(path.resolve(__dirname, '../src/assets')));
 
-app.use('/server', myRouter);
-
-// 404 error handler
-app.use((req, res) => {
-  res.status(404).send("This is not the page you're looking for");
+app.get('/api', (req, res) => {
+    console.log('this is from the get request')
+    res.send('hello word from express!')
 });
 
-// Global error handler
+app.post('/api/signup', userController.createUser, (req, res) => {
+    console.log('Next up is the user data')
+    console.log(res.locals.user);
+    return res.json(res.locals.true)
+})
+
+app.post("/api/login", userController.verifyUser, (req, res) => {
+    console.log('We have a user');
+    console.log(req.body);
+    return res.send(res.locals.boolean);
+})
+
 app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).send({ error: err });
-});
+    console.log(err)
+    res.status(500).send({error: err})
+})
 
-// Starting server
-app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}...`);
-});
+app.listen(PORT, () => console.log(`Server Listening to port ${PORT}`));
